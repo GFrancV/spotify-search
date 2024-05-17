@@ -1,4 +1,4 @@
-import { SpotifyPlaylist, SpotifySearch, SpotifyTrack } from "../types/spotify";
+import { SpotifyPlaylist, SpotifySearch, SpotifyTrack } from "../../types/types";
 import { fetchFromSpotify } from "../utils";
 
 export const searchTrack = async (query: string) => {
