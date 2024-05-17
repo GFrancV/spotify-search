@@ -1,12 +1,14 @@
 {
 	"compilerOptions": {
+		"target": "es2016",
 		"module": "commonjs",
-		"target": "es6",
 		"outDir": "dist",
-		"rootDir": "src",
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
 		"strict": true,
+		/* "rootDir": "src",
 		"moduleResolution": "node",
-		"esModuleInterop": true
-	},
-	"exclude": ["test/"]
+		"typeRoots": ["./node_modules/@types", "./types"] */
+		"skipLibCheck": true
+	}
 }
