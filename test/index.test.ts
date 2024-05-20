@@ -36,36 +36,26 @@ describe("spotify search npm package", () => {
 			const tracks = await searchTrack("Never Gonna Give You Up");
 			const track = await getTrackInfo(tracks[0].id);
 
-			expect(track).toBeInstanceOf(Object);
-			expect(track).toHaveProperty("id");
-			expect(track).toHaveProperty("name");
-			expect(track).toHaveProperty("artists");
-			expect(track).toHaveProperty("album");
-
-			expect(track.id).toBe("4PTG3Z6ehGkBFwjybzWkR8");
-			expect(track.name).toBe("Never Gonna Give You Up");
-			expect(track.artists[0].name).toBe("Rick Astley");
-			expect(track.album.name).toBe("Whenever You Need Somebody");
-			expect(track.type).toBe("track");
+			expect(track).toMatchObject({
+				id: "4PTG3Z6ehGkBFwjybzWkR8",
+				name: "Never Gonna Give You Up",
+				artists: [{ name: "Rick Astley" }],
+				album: { name: "Whenever You Need Somebody" },
+				type: "track",
+			});
 		});
 
 		it("should return a playlist by id", async () => {
 			const playlistId = "37i9dQZEVXbMDoHDwVN2tF";
 			const playlist = await getPlaylist(playlistId);
 
-			expect(playlist).toBeInstanceOf(Object);
-			expect(playlist).toHaveProperty("id");
-			expect(playlist).toHaveProperty("name");
-			expect(playlist).toHaveProperty("owner");
-			expect(playlist).toHaveProperty("public");
-			expect(playlist).toHaveProperty("tracks");
-			expect(playlist).toHaveProperty("type");
-
-			expect(playlist.id).toBe(playlistId);
-			expect(playlist.name).toBe("Top 50 - Global");
-			expect(playlist.owner.id).toBe("spotify");
-			expect(playlist.public).toBe(true);
-			expect(playlist.type).toBe("playlist");
+			expect(playlist).toMatchObject({
+				id: playlistId,
+				name: "Top 50 - Global",
+				owner: { id: "spotify" },
+				public: true,
+				type: "playlist",
+			});
 		});
 
 		it("should throw an error when track id not found", async () => {
