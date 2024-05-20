@@ -3,8 +3,8 @@
 # Spotify Search
 
 <img src="https://img.shields.io/github/v/release/GFrancV/spotify-search?style=for-the-badge" alt="GitHub Release">
-<a href="https://github.com/GFrancV/spotify-search/actions/workflows/deployment.ym">
-	<img src="https://img.shields.io/github/actions/workflow/status/GFrancV/spotify-search/deployment.yml?style=for-the-badge&label=Deploy" alt="Deploy">
+<a href="https://github.com/GFrancV/spotify-search/actions/workflows/publish.yml">
+	<img src="https://img.shields.io/github/actions/workflow/status/GFrancV/spotify-search/publish.yml?style=for-the-badge&label=Publish" alt="Publish">
 </a>
 
 </div>
