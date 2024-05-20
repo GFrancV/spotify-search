@@ -48,19 +48,3 @@ jobs:
         with:
           name: dist
           path: dist
-
-  publish:
-    needs: [test, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: dist
-      - name: Publish npm package
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
