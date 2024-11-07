@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: dist
@@ -70,7 +70,7 @@ jobs:
         with:
           cache: "npm"
           node-version: "20.10"
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v4
         with:
           name: dist
       - name: Install dependencies
