@@ -12,7 +12,7 @@
 		"build": "tsup",
 		"test": "vitest",
 		"check-exports": "attw --pack .",
-		"release": "changeset"
+		"release": "npm run build && changeset publish"
 	},
 	"repository": {
 		"type": "git",
