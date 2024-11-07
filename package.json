@@ -10,7 +10,8 @@
 	],
 	"scripts": {
 		"build": "tsup",
-		"test": "vitest"
+		"test": "vitest",
+		"check-exports": "attw --pack ."
 	},
 	"repository": {
 		"type": "git",
@@ -26,6 +27,7 @@
 	"author": "GFrancV",
 	"license": "MIT",
 	"devDependencies": {
+		"@arethetypeswrong/cli": "^0.16.4",
 		"@types/node": "^20.12.12",
 		"ts-node": "^10.9.2",
 		"tsup": "^8.0.2",
