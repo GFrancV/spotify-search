@@ -26,7 +26,7 @@ Spotify Search is a package to search for Spotify tracks and playlists without t
 Package install with with npm
 
 ```
-npm install spotify-search
+npm i spotify-search-wrapper
 ```
 
 ## Usage
@@ -36,16 +36,14 @@ npm install spotify-search
 #### Searching track's
 
 ```js
-const spotifySearch = require("spotify-search");
+const spotifySearch = require("spotify-search-wrapper");
 
-(async () => {
-	const tracks = await spotifySearch.searchTrack("Never Gonna Give You Up");
-
+spotifySearch.searchTrack("Never Gonna Give You Up").then(tracks => {
 	console.log(tracks[0].id); // 4PTG3Z6ehGkBFwjybzWkR8
 	console.log(tracks[0].name); // Never Gonna Give You Up
 	console.log(tracks[0].href); // https://api.spotify.com/v1/tracks/4PTG3Z6ehGkBFwjybzWkR8
 	console.log(tracks[0].artists[0].name); // Rick Astley
-})();
+});
 ```
 
 #### Searching playlist's
@@ -53,14 +51,12 @@ const spotifySearch = require("spotify-search");
 ```js
 const spotifySearch = require("spotify-search");
 
-(async () => {
-	const playlists = await spotifySearch.searchPlaylist("Top 50 - Global");
-
+spotifySearch.searchPlaylist("Top 50 - Global").then(playlists => {
 	console.log(playlists[0].id); // 37i9dQZEVXbMDoHDwVN2tF
 	console.log(playlists[0].name); // Top 50 - Global
 	console.log(playlists[0].href); // https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF
 	console.log(playlists[0].owner.id); // spotify
-})();
+});
 ```
 
 #### Get Track info
@@ -68,14 +64,12 @@ const spotifySearch = require("spotify-search");
 ```js
 const spotifySearch = require("spotify-search");
 
-(async () => {
-	const track = await spotifySearch.getTrackInfoById("4PTG3Z6ehGkBFwjybzWkR8");
-
+await spotifySearch.getTrackInfoById("4PTG3Z6ehGkBFwjybzWkR8").then(track => {
 	console.log(track.id); // 4PTG3Z6ehGkBFwjybzWkR8
 	console.log(track.name); // Never Gonna Give You Up
 	console.log(track.href); // https://api.spotify.com/v1/tracks/4PTG3Z6ehGkBFwjybzWkR8
 	console.log(track.artists[0].name); // Rick Astley
-})();
+});
 ```
 
 #### Get Playlist info
@@ -83,14 +77,12 @@ const spotifySearch = require("spotify-search");
 ```js
 const spotifySearch = require("spotify-search");
 
-(async () => {
-	const playlist = await spotifySearch.getPlaylist("37i9dQZEVXbMDoHDwVN2tF");
-
+spotifySearch.getPlaylist("37i9dQZEVXbMDoHDwVN2tF").then(playlist => {
 	console.log(playlist.id); // 37i9dQZEVXbMDoHDwVN2tF
 	console.log(playlist.name); // Top 50 - Global
 	console.log(playlist.href); // https://api.spotify.com/v1/playlists/37i9dQZEVXbMDoHDwVN2tF
 	console.log(playlist.owner.id); // spotify
-})();
+});
 ```
 
 ### Tools
