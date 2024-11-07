@@ -1,6 +1,6 @@
 {
 	"name": "spotify-search-wrapper",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "Spotify Search is a package to search for Spotify tracks and playlists without the need for a token, totally transparent to the user and that uses the official Spotify Web API.",
 	"main": "dist/index.js",
 	"module": "dist/index.mjs",
