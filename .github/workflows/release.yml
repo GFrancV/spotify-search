@@ -1,11 +1,8 @@
-name: Publish
+name: Release
 
 on:
-  push:
-    branches:
-      - main
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
+  release:
+    types: [created]
 
 jobs:
   test:
@@ -61,3 +58,28 @@ jobs:
         run: npm run build
       - name: Check exports
         run: npm run check-exports
+
+  publish:
+    needs: [check-exports]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: "npm"
+          node-version: "20.10"
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: npm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
